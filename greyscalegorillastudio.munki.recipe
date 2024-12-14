@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Imports Greyscalegorilla Studio into Munki.</string>
+    <key>Identifier</key>
+    <string>com.github.martink-bsco.munki.greyscalegorillastudio</string>
+    <key>Input</key>
+    <dict>
+        <key>DISPLAY_NAME</key>
+        <string>Greyscalegorilla Studio</string>
+        <key>MUNKI_CATEGORY</key>
+        <string>Productivity</string>
+        <key>MUNKI_REPO_SUBDIR</key>
+        <string>apps/%NAME%</string>
+        <key>NAME</key>
+        <string>GreyscalegorillaStudio</string>
+        <key>pkginfo</key>
+        <dict>
+            <key>catalogs</key>
+            <array>
+                <string>selfservice</string>
+            </array>
+            <key>category</key>
+            <string>%MUNKI_CATEGORY%</string>
+            <key>description</key>
+            <string>Greyscalegorilla Studio, the desktop app that instantly connects the entire Plus library to your favorite 3D tools. 
+            The fastest, easiest way to get exactly the 3D assets you need, right when you need them.</string> 
+            <key>developer</key>
+            <string>Greyscalegorilla</string>
+            <key>display_name</key>
+            <string>%DISPLAY_NAME%</string>
+            <key>minimum_os_version</key>
+            <string>10.7.0</string>
+            <key>name</key>
+            <string>%NAME%</string>
+            <key>unattended_install</key>
+            <true />
+        </dict>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.4.2</string>
+    <key>ParentRecipe</key>
+    <string>com.github.martink-bsco.download.greyscalegorillastudio</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Arguments</key>
+                <dict>
+                    <key>additional_pkginfo</key>
+                    <dict>
+                        <key>version</key>
+                        <string>%version%</string>
+                    </dict>
+                </dict>
+            <key>Processor</key>
+            <string>MunkiPkginfoMerger</string>
+        </dict>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_path</key>
+                <string>%pathname%</string>
+                <key>repo_subdirectory</key>
+                <string>%MUNKI_REPO_SUBDIR%</string>
+            </dict>
+            <key>Processor</key>
+            <string>MunkiImporter</string>
+        </dict>
+    </array>
+</dict>
+</plist>
