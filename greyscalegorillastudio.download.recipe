@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads the latest version of Greyscalegorilla Studio</string>
+    <key>Identifier</key>
+    <string>com.github.martink-bsco.download.greyscalegorillastudio</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>Greyscalegorilla-Studio</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>1.2.12</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>re_pattern</key>
+                <string>(https:\/\/greyscalegorilla\.com\/large-download\/\?path=Studio\/Greyscalegorilla\.Studio_\d*\.\d*\.\d*_universal.dmg)</string>
+                <key>result_output_var_name</key>
+                <string>url</string>
+                <key>url</key>
+                <string>https://greyscalegorilla.com/studio-download/</string>
+            </dict>
+            <key>Processor</key>
+            <string>URLTextSearcher</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+            <key>Arguments</key>
+            <dict>
+                <key>filename</key>
+                <string>GreyscalegorillaStudio.dmg</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+			<string>CodeSignatureVerifier</string>
+			<key>Arguments</key>
+			<dict>
+                <key>input_path</key>
+				<string>%pathname%/Greyscalegorilla Studio.app</string>
+                <key>requirement</key>
+                <string>anchor apple generic and identifier "com.greyscalegorilla.studio" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "KF48V9DW9Z")</string>
+            </dict>
+		</dict>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+    </array>
+</dict>
+</plist>
