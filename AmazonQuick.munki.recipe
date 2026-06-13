@@ -31,7 +31,7 @@
             <key>display_name</key>
             <string>%DISPLAY_NAME%</string>
             <key>minimum_os_version</key>
-            <string>10.7.0</string>
+            <string>15.0.0</string>
             <key>name</key>
             <string>%NAME%</string>
             <key>unattended_install</key>
@@ -39,7 +39,7 @@
         </dict>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.1000.1123</string>
+    <string>0.2.0</string>
     <key>ParentRecipe</key>
     <string>com.github.martink-bsco.download.amazonquick</string>
     <key>Process</key>
