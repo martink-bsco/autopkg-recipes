@@ -5,14 +5,14 @@
     <key>Description</key>
     <string>Downloads the latest version of Amazon Quick.</string>
     <key>Identifier</key>
-    <string>com.github.martink-bsco.download.AmazonQuick</string>
+    <string>com.github.martink-bsco.download.amazonquick</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
         <string>AmazonQuick</string>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.1000.1123</string>
+    <string>0.2.0</string>
     <key>Process</key>
     <array>
         <dict>
